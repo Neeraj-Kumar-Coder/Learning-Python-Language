@@ -25,6 +25,17 @@ def rightStarPrint(size):
         print("\n", end="")
         linenum += 1
 
+def inverseStarPrint(size):
+    """This function will print the star pattern in inverted form"""
+    linenum = size
+    while(linenum):
+        temp = linenum
+        while(temp):
+            print("*", end="")
+            temp -= 1
+        print("\n", end="")
+        linenum -= 1
+
 
 # print(leftStarPrint.__doc__)  # Used to print docstrings
 # print(rightStarPrint.__doc__)  # Used to print docstrings
@@ -32,3 +43,4 @@ def rightStarPrint(size):
 height = input("Enter the size of star pattern you want: ")
 leftStarPrint(int(height))
 rightStarPrint(int(height))
+inverseStarPrint(int(height))
