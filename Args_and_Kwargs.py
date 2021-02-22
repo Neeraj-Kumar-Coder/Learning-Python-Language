@@ -1,6 +1,6 @@
 def func_print(*args):
     for name in args:
-        print(name)
+        print(f"The name is {name}")
 
 
 def func_kwarg(**kwargs):
@@ -11,5 +11,5 @@ def func_kwarg(**kwargs):
 names = ["Neeraj", "Rahul", "Ajay", "Harry"]
 func_print(*names)
 
-dicoo = {"Neeraj": "Student", "Rahul": "Boy", "Rohan": "LOL"}
-func_kwarg(**dicoo)
+name_description = {"Neeraj": "Student", "Rahul": "Boy", "Rohan": "LOL"}
+func_kwarg(**name_description)
