@@ -19,6 +19,16 @@ def Fibonacci_iteration(number):
             number -= 1
     return result
 
+# OR
+
+
+def Fibonacci_iteration_short(number):
+    a, b = 0, 1
+    for _ in range(1, number):
+        a, b = b, a+b
+    return a
+
 
 print(Fibonacci_recursion(10))
 print(Fibonacci_iteration(10))
+print(Fibonacci_iteration_short(10))
