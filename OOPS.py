@@ -260,24 +260,47 @@
 # print(instanceVariable.var2)
 
 
-# super() and overriding in classes
+# # super() and overriding in classes
 
-class A:
-    var1 = 10
+# class A:
+#     var1 = 10
 
-    def __init__(self):
-        self.var2 = 90
-        self.special = "I am special"
-
-
-class B(A):
-    var2 = 19
-
-    def __init__(self):
-        super().__init__()
-        self.var2 = 70
+#     def __init__(self):
+#         self.var2 = 90
+#         self.special = "I am special"
 
 
-sourav = B()
-print(sourav.var2)
-print(sourav.special)
+# class B(A):
+#     var2 = 19
+
+#     def __init__(self):
+#         super().__init__()
+#         self.var2 = 70
+
+
+# sourav = B()
+# print(sourav.var2)
+# print(sourav.special)
+
+
+class Student:
+    def __init__(self, name, roll_number, branch, section):
+        self.name = name
+        self.roll = roll_number
+        self.branch = branch
+        self.section = section
+
+    @classmethod
+    def entries(cls, string):
+        return cls(*string.split("-"))
+
+    @staticmethod
+    def docstring():
+        print("This is a class named student. Which has instance variables as\nname, roll, branch, section")
+
+    def printdetails(self):
+        return f"Name = {self.name}\nRoll number = {self.roll}\nBranch = {self.branch}\nSection = {self.section}"
+
+
+neeraj = Student.entries("Neeraj Kumar-2020UCA1809-CSAI-1/4")
+print(neeraj.printdetails())
