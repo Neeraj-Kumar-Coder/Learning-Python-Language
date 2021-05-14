@@ -283,24 +283,91 @@
 # print(sourav.special)
 
 
-class Student:
-    def __init__(self, name, roll_number, branch, section):
+# class Student:
+#     def __init__(self, name, roll_number, branch, section):
+#         self.name = name
+#         self.roll = roll_number
+#         self.branch = branch
+#         self.section = section
+
+#     @classmethod
+#     def entries(cls, string):
+#         return cls(*string.split("-"))
+
+#     @staticmethod
+#     def docstring():
+#         print("This is a class named student. Which has instance variables as\nname, roll, branch, section")
+
+#     def printdetails(self):
+#         return f"Name = {self.name}\nRoll number = {self.roll}\nBranch = {self.branch}\nSection = {self.section}"
+
+
+# neeraj = Student.entries("Neeraj Kumar-2020UCA1809-CSAI-1/4")
+# print(neeraj.printdetails())
+
+# # SOURCE FOR DUNDER METHODS IN PYTHON 3.9.2
+# # https://docs.python.org/3/library/operator.html
+
+# class Sample:
+#     def __init__(self):
+#         self.val1 = "Hello"
+#         self.val2 = "World"
+#         self.num1 = 10
+#         self.num2 = 5
+
+#     def __add__(self, other):
+#         return self.val1 + other.val2
+
+#     def __repr__(self):
+#         return "This is a repr dunder method"
+
+#     def __str__(self):
+#         return "This is a str dunder method"
+
+
+# a = Sample()
+# b = Sample()
+
+# print(a+b)
+# print(a)
+# print(b)
+
+# Setter and Property Decorator
+class Employee:
+    def __init__(self, name, salary, roll):
         self.name = name
-        self.roll = roll_number
-        self.branch = branch
-        self.section = section
+        self.salary = salary
+        self.roll = roll
 
-    @classmethod
-    def entries(cls, string):
-        return cls(*string.split("-"))
+    @property
+    def email(self):
+        if self.name == None or self.salary == None:
+            return "The email is not registered please initialize it using the setter"
+        return f"{self.name}.{self.salary}@xyz.com"
 
-    @staticmethod
-    def docstring():
-        print("This is a class named student. Which has instance variables as\nname, roll, branch, section")
+    @email.setter
+    def email(self, string):
+        store = string.split("@")[0].split(".")
+        self.name = store[0]
+        self.salary = store[1]
 
-    def printdetails(self):
-        return f"Name = {self.name}\nRoll number = {self.roll}\nBranch = {self.branch}\nSection = {self.section}"
+    @email.deleter
+    def email(self):
+        self.name = None
+        self.salary = None
+        self.roll = None
 
 
-neeraj = Student.entries("Neeraj Kumar-2020UCA1809-CSAI-1/4")
-print(neeraj.printdetails())
+emp1 = Employee("Neeraj", 5000, "Programmer")
+print(emp1.email)
+emp1.name = "Rahul"
+print(emp1.email)
+emp1.email = "abc.233@xyz.com"
+print(emp1.email)
+
+del emp1.email
+print(emp1.email)
+
+print(type(emp1))
+print(id(emp1))
+print(dir(emp1))
